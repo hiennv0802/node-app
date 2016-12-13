@@ -1,7 +1,7 @@
-var db = require("../db");
+var db = require("../db/db");
 
 //create new comment in database and return its id
-exports.create = function()(user, text, cb) {
+exports.create = function(user, text, cb) {
   var comment = {
     user: user,
     text: text,
