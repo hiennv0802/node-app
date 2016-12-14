@@ -18,4 +18,4 @@ route.get("/:id", function(req, res) {
   });
 });
 
-module.exports = route;
+module.exports = router;
