@@ -1,9 +1,9 @@
 var express = require("express")
   , router = express.Router()
-  , Comment = require("../models/comment")
-  , auth = require("../middlewares/auth")
+  , Comment = require("../models/comments");
+  // , auth = require("../middlewares/auth")
 
-route.post("/", auth, function(req, res) {
+router.post("/", function(req, res) {
   user = req.user.id;
   text = req.body.text;
 
@@ -12,7 +12,7 @@ route.post("/", auth, function(req, res) {
   });
 });
 
-route.get("/:id", function(req, res) {
+router.get("/:id", function(req, res) {
   Comment.get(req.params.id, function(err, comment) {
     res.render("comments/comment", {comment: comment});
   });

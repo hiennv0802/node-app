@@ -3,6 +3,7 @@ var path = require('path');
 var app = express();
 var index = require('./routes/index');
 var users = require('./routes/users');
+var comments = require('./routes/comments');
 
 
 // view engine setup
@@ -11,6 +12,7 @@ app.set('view engine', 'jade');
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/comments', comments);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,9 +34,9 @@ app.use(function(err, req, res, next) {
 
 app.engine("jade", require("jade").__express);
 app.set("view engine", "jade");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "../public"));
 // app.use(require("../middlewares/users"));
-app.use(require("../controllers/commentControllers"));
+app.use(require("./controllers/commentControllers"));
 
 app.listen(3000, function() {
   console.log("Listen on port 3000...");
