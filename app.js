@@ -6,7 +6,7 @@ var fs = require('fs');
 var mongodb = require('mongodb');
 var swig = require('swig');
 var swig = new swig.Swig();
-var db =require('mongoose');
+var db = require('mongoose');
 
 db.connect('mongodb://localhost:27017/node-app');
 app.set('port', process.env.PORT || 3000);

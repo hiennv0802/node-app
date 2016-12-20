@@ -5,11 +5,29 @@
         <title>{{title}}</title>
     </head>
     <body>
-       <ul>
+      <table>
+        <tr>
+          <th>STT</th>
+          <th>Name</th>
+          <th>Password</th>
+          <th>Actions</th>
+        </tr>
         {% for user in users %}
-          <li>{{user.username}}</li>
-          <li>{{user.password}}</li>
+          <tr>
+            <td>1</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+            <td></td>
+          </tr>
         {% endfor %}
-       </ul>
+      </table>
+      <p>
+        Create new users
+        <form action="/users" method="POST">
+          Username: <input type="text" name="username"><br>
+          Password: <input type="text" name="password"><br>
+          <button type="submit">Submit</button>
+        </form>
+      </p>
     </body>
 </html>
