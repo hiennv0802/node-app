@@ -34,15 +34,23 @@ module.exports.controller = function(app) {
     })
   });
 
-  app.get('users/:id', function(req, res) {
-    console.log('show function');
-    User.findById(req.body.id, function(user) {
+  app.get('/users/:id', function(req, res) {
+    console.log(req.params.id);
+    User.findOne({'id': req.params.id}, function(err, user) {
       console.log(user);
       res.format({
         html: function() {
           res.render('users/show.html', {user: user});
         }
       });
+    })
+  });
+
+  app.post('/users/delete/:id',function(req, res) {
+    console.log(req.params.id);
+    User.remove({'id': req.params.id}, function(err, res) {
+      if(err) throw err;
+      res.redirect(req.get('referer'));
     })
   });
 }
