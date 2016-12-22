@@ -24,6 +24,13 @@ module.exports.controller = function(app) {
   });
 
   app.post('/users', function(req, res) {
-
+    user = new User({username: req.body.username, password: req.body.password});
+    user.save(function(err, docs) {
+      if(err) throw err;
+      else {
+        console.log('Create user successfully!');
+        res.redirect(req.get('referer'));
+      }
+    })
   });
 }

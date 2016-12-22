@@ -3,9 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <title>{{title}}</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
     <body>
-      <table>
+      <table class="table table-hover user-list">
         <tr>
           <th>STT</th>
           <th>Name</th>
@@ -23,10 +25,10 @@
       </table>
       <p>
         Create new users
-        <form action="/users" method="POST">
-          Username: <input type="text" name="username"><br>
-          Password: <input type="text" name="password"><br>
-          <button type="submit">Submit</button>
+        <form action="/users" method="POST" class="col-md-6">
+          Username: <input type="text" name="username" class="form-control"><br>
+          Password: <input type="text" name="password" class="form-control"><br>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </p>
     </body>
