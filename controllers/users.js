@@ -33,4 +33,16 @@ module.exports.controller = function(app) {
       }
     })
   });
+
+  app.get('users/:id', function(req, res) {
+    console.log('show function');
+    User.findById(req.body.id, function(user) {
+      console.log(user);
+      res.format({
+        html: function() {
+          res.render('users/show.html', {user: user});
+        }
+      });
+    })
+  });
 }
